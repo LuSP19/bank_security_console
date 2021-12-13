@@ -1,0 +1,9 @@
+.env
+.idea
+__pycache__
+.vscode
+.DS_Store
+Scripts
+Lib
+Include
+pyvenv.cfg
