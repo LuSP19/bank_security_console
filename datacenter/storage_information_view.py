@@ -12,7 +12,7 @@ def storage_information_view(request):
     for visit in non_closed_visits_query_set:
         non_closed_visit = {
             'who_entered': visit.passcard.owner_name,
-            'entered_at': localtime(visit.entered_at).strftime("%d-%m-%Y %H:%M"),
+            'entered_at': localtime(visit.entered_at).strftime('%d-%m-%Y %H:%M'),
             'duration': format_duration(get_duration(visit)),    
         }
         non_closed_visits.append(non_closed_visit)
