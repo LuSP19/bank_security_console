@@ -2,22 +2,23 @@ from datetime import datetime
 from time import gmtime, strftime
 
 from django.db import models
+from django.utils.timezone import localtime
 
 
 def get_duration(visit):
     if visit.leaved_at:
-        duration = visit.leaved_at.replace(tzinfo=None) - visit.entered_at.replace(tzinfo=None)
+        duration = visit.leaved_at - visit.entered_at
         return duration.total_seconds()
     else:
-        return (datetime.now() - visit.entered_at.replace(tzinfo=None)).total_seconds()
+        return (localtime() - visit.entered_at).total_seconds()
 
 
 def format_duration(duration):
-    return strftime("%H:%M", gmtime(duration))
+    return strftime('%H:%M', gmtime(duration))
 
 
 def is_visit_long(visit, minutes=60):
-    return True if get_duration(visit) // 60 > minutes else False
+    return get_duration(visit) // 60 > minutes
 
 
 class Passcard(models.Model):

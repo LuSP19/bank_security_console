@@ -12,7 +12,7 @@ def passcard_info_view(request, passcode):
     this_passcard_visits = []
     for visit in passcard_visits_query_set:
         visit_record = {
-            'entered_at': localtime(visit.entered_at).strftime("%d-%m-%Y"),
+            'entered_at': localtime(visit.entered_at).strftime('%d-%m-%Y'),
             'duration': format_duration(get_duration(visit)),
             'is_strange': is_visit_long(visit, minutes=60)
         }
