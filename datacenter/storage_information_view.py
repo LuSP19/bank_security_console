@@ -7,9 +7,9 @@ from datacenter.models import Passcard, Visit
 
 def storage_information_view(request):
     non_closed_visits = []
-    non_closed_visits_query_set = Visit.objects.filter(leaved_at=None)
+    non_closed_visits_query = Visit.objects.filter(leaved_at=None)
 
-    for visit in non_closed_visits_query_set:
+    for visit in non_closed_visits_query:
         non_closed_visit = {
             'who_entered': visit.passcard.owner_name,
             'entered_at': localtime(visit.entered_at).strftime('%d-%m-%Y %H:%M'),

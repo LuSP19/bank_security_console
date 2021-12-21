@@ -7,10 +7,10 @@ from datacenter.models import Passcard, Visit
 
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.get(passcode=passcode)
-    passcard_visits_query_set = Visit.objects.filter(passcard=passcard)
+    passcard_visits_query = Visit.objects.filter(passcard=passcard)
 
     this_passcard_visits = []
-    for visit in passcard_visits_query_set:
+    for visit in passcard_visits_query:
         visit_record = {
             'entered_at': localtime(visit.entered_at).strftime('%d-%m-%Y'),
             'duration': format_duration(get_duration(visit)),
