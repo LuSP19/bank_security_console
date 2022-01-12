@@ -8,15 +8,15 @@
 
 ### Как установить
 
-Для запуска сайта потребуется создать файл с переменными окружения **.env** и указать в нём параметры для доступа к БД, SECRET_KEY пульта охраны и ключ DEBUG для включения режима отладки. Содержимое файла **.env** для проверки работоспособности:
+Для запуска сайта потребуется создать файл с переменными окружения **.env** и указать в нём параметры для доступа к БД, SECRET_KEY пульта охраны и ключ DEBUG для включения режима отладки. Пример содержимого файла **.env**:
 
 ```
-HOST='checkpoint.devman.org'
+HOST='security.bank.com'
 PORT=5434
-NAME='checkpoint'
-USER='guard'
-PASSWORD='osim5'
-SECRET_KEY='REPLACE_ME'
+NAME='security'
+USER='admin'
+PASSWORD='admin'
+SECRET_KEY='top_secret_key'
 DEBUG=True
 ```
 
