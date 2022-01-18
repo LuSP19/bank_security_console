@@ -5,7 +5,7 @@ from environs import Env
 env = Env()
 env.read_env()
 
-DB_URL = os.getenv('DB_URL')
+DB_URL = env.str('DB_URL')
 
 DATABASES = dict()
 DATABASES['default'] = dj_database_url.parse(DB_URL, conn_max_age=600)
@@ -18,7 +18,7 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
