@@ -8,16 +8,13 @@
 
 ### Как установить
 
-Для запуска сайта потребуется создать файл с переменными окружения **.env** и указать в нём параметры для доступа к БД, SECRET_KEY пульта охраны и ключ DEBUG для включения режима отладки. Пример содержимого файла **.env**:
+Для запуска сайта потребуется создать файл с переменными окружения **.env** и указать в нём параметры для доступа к БД в виде ссылки postgres://USER:PASSWORD@HOST:PORT/NAME, SECRET_KEY пульта охраны, ключ DEBUG для включения режима отладки и ALLOWED_HOSTS (список хостов/доменов, для которых может работать сайт.). Пример содержимого файла **.env**:
 
 ```
-HOST='security.bank.com'
-PORT=5434
-NAME='security'
-USER='admin'
-PASSWORD='admin'
+DB_URL = postgres://admin:admin@security.bank.com:5434/security
 SECRET_KEY='top_secret_key'
 DEBUG=True
+ALLOWED_HOSTS=127.0.0.1, localhost
 ```
 
 Python3 должен быть уже установлен. 
